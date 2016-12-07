@@ -3,13 +3,15 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import sys
 
-def file_graph_show( G ):
+def file_graph_show( G,i ):
+	plt.figure(i)
 	print "\rStructuration d'un graph..."
 	nx.draw(G)  # networkx draw()
 	print "\rDessin du graph...."
+	
 	plt.draw()  # pyplot draw()
-	print "\rAffichage du graph"
-	plt.show()
+	return plt
+	
 def file_graph_building( path ):
    
 	G=nx.Graph()
