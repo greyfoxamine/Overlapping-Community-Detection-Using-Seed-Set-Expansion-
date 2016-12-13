@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import sys
 import graph_building as gb
-import community
+import community 
+import Graclus_centers as gc
 
 
 # filtering phase phase Remove unimportant regions of the graph
@@ -15,7 +16,7 @@ import community
 #Compute the largest connected component
 
 def filtering_phase( G ):
-	print "filtering_phase processing...."
+	
 	liste=[]
 	nb_node=G.nodes_iter(data=False)
 	
@@ -33,11 +34,26 @@ def filtering_phase( G ):
 
 	
 G=gb.file_graph_building( sys.argv[1] )
-gb.file_graph_show(G,1)
-print(nx.info(G))
+#gb.file_graph_show(G,1).show()
 
+
+print "filtering_phase processing...."
 G= filtering_phase( G  )
 print(nx.info(G))
 
-gb.file_graph_show(G,2).show()
+#gb.file_graph_show(G,2).show()
+
+#print "seeding phase"
+
+seeds= gc.Graclus_centers( G  )
+print seeds
+#print gc.minimum_of_float_list(seeds.values())
+
+#degCi=sum(G.degree(G.nodes()))
+#part = community.best_partition(G,resolution=2)
+#values = [part.get(node) for node in G.nodes()]
+#print values
+#nx.draw_spring(G, cmap = plt.get_cmap('jet'), node_color = values, node_size=30, with_labels=False)
+#plt.show()
+
 
