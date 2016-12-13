@@ -1,0 +1,4 @@
+Filtering phase in :0.6303319931030273
+seeding phase in :37.04850101470947
+seed set expansion  phase in :0.0235288143157959
+building graph with community colors  in :66.97501397132874

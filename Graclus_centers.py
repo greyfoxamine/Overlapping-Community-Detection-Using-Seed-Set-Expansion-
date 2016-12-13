@@ -38,6 +38,7 @@ def get_clusters_node(part,cluster):
 def Graclus_centers( G  ):
 	seeds=[]
 	part = community.best_partition(G)
+	
 	clusters =[]
 	
 	for val in part.values(): 
